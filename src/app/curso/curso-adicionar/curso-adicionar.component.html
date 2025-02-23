@@ -1,0 +1,63 @@
+<h3>Cadastro de Cursos</h3>
+<hr>
+<form (ngSubmit)="adicionar(cursoForm)" #cursoForm="ngForm">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <label class="form-label">Nome</label>
+            <input class="form-control" name="nome" [(ngModel)]="curso.nome" #nome="ngModel" required/>
+            <div class="text-danger" *ngIf="nome.invalid && nome.touched">
+                <span *ngIf="nome.errors?.['required']">O nome é obrigatório.</span>
+                <span *ngIf="nome.errors?.['maxlength']">O nome pode ter no máximo 50 caracteres.</span>            
+            </div>              
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <label class="form-label">Descrição</label>
+            <input class="form-control" name="descricao" [(ngModel)]="curso.descricao"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <label class="form-label">Período</label>
+            <select name="periodo" class="form-select" [(ngModel)]="curso.periodo" #periodo="ngModel" required>
+                @for (periodo of periodos; track $index) {
+                    <option [ngValue]="periodo.id">{{ periodo.descricao }}</option>
+                }
+            </select>
+            <div class="text-danger" *ngIf="periodo.invalid && periodo.touched">
+                Período é obrigatório.
+            </div>               
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <label class="form-label">Carga Horária</label>
+            <input class="form-control" name="cargaHoraria" [(ngModel)]="curso.cargaHoraria" type="number" required/>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <label class="form-label">Qtde Máxima de ALunos</label>
+            <input class="form-control" name="quantidadeMaximaAlunos" [(ngModel)]="curso.quantidadeMaximaAlunos" type="number" required/>
+        </div>        
+    </div>
+    <hr>
+    <div class="text-center">
+        <button class="btn btn-danger mr-5" type="reset" (click)="cancelar()">
+            <i class="fa-solid fa-xmark"></i>
+            Cancelar
+        </button>
+        <button class="btn btn-success" type="submit" [disabled]="cursoForm.invalid">
+            <i class="fa-regular fa-floppy-disk"></i>
+            Confirmar
+        </button>
+    </div>
+</form>
+
+
+
+<!-- 
+"nome": "string",
+"descricao": "string",
+
+"periodo": "Manha",
+"cargaHoraria": 0,
+"quantidadeMaximaAlunos": 0 
+-->

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="fa-solid fa-city"></i>
+      Unimar
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <!-- Curso Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Curso
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="curso/listar">
+                <i class="fa-solid fa-book"></i>
+                Listar
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="curso/adicionar">
+                <i class="fa-solid fa-circle-plus"></i>
+                Adicionar
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- Professor Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Professor
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="professor/listar">
+                <i class="fa-solid fa-chalkboard-teacher"></i>
+                Listar
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="professor/adicionar">
+                <i class="fa-solid fa-circle-plus"></i>
+                Adicionar
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
